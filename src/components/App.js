@@ -4,19 +4,13 @@ import InputArea from "./InputArea";
 
 function App() {
 
-  const [inputText, setInputText] = useState("");
   const [items, setItems] = useState([]);
 
-  function handleChange(event){
-    const newText = event.target.value;
-    setInputText(newText);
-  }
-
-  function addItem(){
+  function addItem(inputText){
+        
     setItems(prevItems => (
       [...prevItems, inputText]
     ));
-    setInputText("");
   }
 
   function deleteItem(id){
@@ -32,11 +26,7 @@ function App() {
       <div className="heading">
         <h1>To-Do List</h1>
       </div>
-      <InputArea 
-        onChanged={handleChange}
-        text={inputText}
-        onAddButtonClick={addItem}
-      />
+      <InputArea onAdd={addItem}/>
       {/* we need an id to know which item wants to be deleted */}
       <div>
         <ul>
