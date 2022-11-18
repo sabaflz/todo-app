@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ToDoItem from "./ToDoItem";
+import InputArea from "./InputArea";
 
 function App() {
 
@@ -31,12 +32,11 @@ function App() {
       <div className="heading">
         <h1>To-Do List</h1>
       </div>
-      <div className="form">
-        <input onChange={handleChange} type="text" value={inputText}/>
-        <button onClick={addItem}>
-          <span>Add</span>
-        </button>
-      </div>
+      <InputArea 
+        onChanged={handleChange}
+        text={inputText}
+        onAddButtonClick={addItem}
+      />
       {/* we need an id to know which item wants to be deleted */}
       <div>
         <ul>
